@@ -29,7 +29,7 @@ app.use(bookingRouter)
 
 const mongoose = require("mongoose");
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb://localhost:27017/DunlapReserve', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 app.listen(PORT, () => {
     console.log(`Server listening on PORT ${PORT}`)
