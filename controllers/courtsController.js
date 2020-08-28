@@ -30,6 +30,7 @@ module.exports = {
         const promises = bookings.map(async booking => {
             const user = await User.findOne({googleId: booking.user})
             const start = intervalToDate(booking.intervals[0])
+            console.log(start)
             const end = intervalToDate(booking.intervals[booking.intervals.length - 1])
             start.setDate(booking.date)
             end.setDate(booking.date)
