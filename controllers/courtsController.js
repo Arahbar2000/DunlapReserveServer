@@ -31,14 +31,14 @@ module.exports = {
             const user = await User.findOne({googleId: booking.user})
             const start = intervalToDate(booking.intervals[0])
             const end = intervalToDate(booking.intervals[booking.intervals.length - 1])
-            start.setUTCDate(booking.date)
-            end.setUTCDate(booking.date)
+            start.setDate(booking.date)
+            end.setDate(booking.date)
             return {
                 id: booking.user,
                 resourceId: booking.court,
                 title: user.displayName,
-                start: start.getUTCMilliseconds(),
-                end: end.getUTCMilliseconds()
+                start: start.getTime(),
+                end: end.getTime()
             }
         })
 
